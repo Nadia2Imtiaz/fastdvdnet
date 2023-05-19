@@ -67,7 +67,7 @@ class UpBlock(nn.Module):
 		super(UpBlock, self).__init__()
 		self.convblock = nn.Sequential(
 			CvBlock(in_ch, in_ch),
-			nn.Conv2d(in_ch, out_ch*4, kernel_size=3, padding=1, bias=False),
+			nn.Conv2d(in_ch, out_ch*1, kernel_size=3, padding=1, bias=False),
 			nn.PixelShuffle(2)
 		)
 
@@ -133,7 +133,7 @@ class DenBlock(nn.Module):
 		x2 = self.downc1(x1)
 		# Upsampling
 		x2 = self.upc2(x2)
-		x1 = self.upc1(x2)
+		x1 = self.upc1(x1+x2)
 		# Estimation
 		x = self.outc(x0+x1)
 
