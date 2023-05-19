@@ -67,7 +67,7 @@ class UpBlock(nn.Module):
 		super(UpBlock, self).__init__()
 		self.convblock = nn.Sequential(
 			CvBlock(in_ch, in_ch),
-			nn.Conv2d(in_ch, out_ch*1, kernel_size=3, padding=1, bias=False),
+			nn.Conv2d(in_ch, out_ch*4, kernel_size=3, padding=1, bias=False),
 			nn.PixelShuffle(2)
 		)
 
