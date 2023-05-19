@@ -133,7 +133,7 @@ class DenBlock(nn.Module):
 		x2 = self.downc1(x1)
 		# Upsampling
 		x2 = self.upc2(x2)
-		x1 = self.upc1(x1+x2)
+		x1 = self.upc1(x2)
 		# Estimation
 		x = self.outc(x0+x1)
 
